@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨の日の星空を信じていた（仮） | 青山企画展</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 基本設定 (Base Styles) --- */
+        :root {
+            --bg-color: #f8f8f8; /* ほんの少しグレーがかった白 */
+            --text-color: #2b2b2b; /* 墨色 */
+            --accent-color: #888;
+            --font-main: "Shippori Mincho", "Yu Mincho", "YuMincho", serif;
+            --font-eng: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 2.2; /* 行間を広く取って読みやすく */
+            letter-spacing: 0.12em; /* 文字間を広く取って気品を出す */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        /* --- レイアウト (Layout) --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            margin-bottom: 120px;
+            opacity: 0; /* 最初は隠す（アニメーション用） */
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header / Hero --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .title-area {
+            margin-bottom: 50px;
+            z-index: 2;
+        }
+
+        /* プロジェクト名スタイル */
+        .project-label {
+            font-size: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 5vw, 42px);
+            font-weight: 500;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-family: var(--font-eng);
+            font-size: 13px;
+            color: var(--accent-color);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .tentative {
+            font-size: 0.6em;
+            vertical-align: super;
+            margin-left: 5px;
+            font-weight: normal;
+        }
+
+        /* メイン画像エリア */
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px; /* 画像がない場合の高さ */
+            background-color: #e0e0e0; /* 画像がない時のグレー */
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 少し影をつけてリッチに */
+        }
+
+        /* 画像を実際に表示するための設定 */
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 枠に合わせてトリミング */
+            display: block;
+        }
+
+        /* --- Statement --- */
+        .statement-text {
+            text-align: justify; /* 両端揃え */
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        .statement-text p {
+            margin-bottom: 30px;
+        }
+
+        /* --- Artists --- */
+        .section-title {
+            font-family: var(--font-eng);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--accent-color);
+            letter-spacing: 0.2em;
+        }
+
+        .artist-group {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .group-name {
+            font-size: 14px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .artist-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 40px;
+        }
+
+        .artist-list li {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- Social Link Button Style --- */
+        .social-link {
+            display: inline-block;
+            font-size: 11px;
+            color: #888;
+            margin-left: 10px;
+            padding: 2px 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px; /* 丸いカプセル型 */
+            font-family: var(--font-eng);
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            color: #fff;
+            background-color: #333;
+            border-color: #333;
+            text-decoration: none;
+        }
+
+        /* --- Information --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        .info-label {
+            font-weight: bold;
+        }
+
+        .info-map {
+            margin-top: 40px;
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            position: relative;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(100%) contrast(1.2); /* 地図をモノクロにしてクールに */
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 12px;
+            color: #aaa;
+            font-family: var(--font-eng);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr; /* スマホでは縦並び */
+                gap: 5px;
+            }
+
+            .info-label {
+                margin-top: 15px;
+                color: var(--accent-color);
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <section class="title-area">
+            <div class="project-label">Rain Tree橋本真希×藝大生9人プロジェクト</div>
+            
+            <h1>雨の日の星空を信じていた<span class="tentative">（仮）</span></h1>
+            
+            <p class="subtitle">Rain Tree × GEIDAI 2026</p>
+        </section>
+        
+        <section class="hero-image">
+            <img src="main_visual01.png" alt="Main Visual by Ame" onerror="this.style.display='none';">
+            <div style="position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#999; font-size:12px; width:100%; text-align:center; z-index:-1;">
+                Main Visual Art by Ame
+            </div>
+        </section>
+    </header>
+
+    <div class="container">
+        
+        <section id="statement">
+            <div class="statement-text">
+                <p>
+                    本展は藝大生とアイドルという、異なるベクトルで共通して常に鑑賞者や観客の視点を意識してきた両者のまなざしから、表現者としての思考と表現の境界を越え、絵画という媒体へ昇華する試みです。
+                </p>
+                <p>
+                    絵画によって私たちは境界を越えられるのか。この問題提起からアイドルとしてすでに持っている表現者としてのポテンシャルを、異なる形態で輝かせるという試みとして藝大生で一緒に向き合いました。
+                </p>
+                <p>
+                    この展覧会までの約半年という時間をかけたアートプロジェクトとして、両者が共に発見していく過程をドキュメントで提示します。それぞれが書き留めた、まなざしを題材にした詩や言葉も交えながら鑑賞することにより、作家と鑑賞者の境界の間でも間接的に対話を試みる実験的な、学生による企画です。
+                </p>
+            </div>
+        </section>
+
+        <section id="artists">
+            <h2 class="section-title">ARTISTS</h2>
+
+            <div class="artist-group">
+                <span class="group-name">Rain Tree</span>
+                <ul class="artist-list">
+                    <li>橋本真希</li>
+                </ul>
+            </div>
+
+            <div class="artist-group">
+                <span class="group-name">Tokyo University of the Arts</span>
+                <ul class="artist-list">
+                    <li>あめ <a href="https://instagram.com/ame_prism" target="_blank" class="social-link">Instagram</a></li>
+                    <li>加藤彩 <a href="https://instagram.com/utoka_47_" target="_blank" class="social-link">Instagram</a></li>
+                    <li>小橋柚奈 <a href="https://instagram.com/tti_1102" target="_blank" class="social-link">Instagram</a></li>
+                    <li>こばら <a href="https://instagram.com/g_o_e_k_a_k_i" target="_blank" class="social-link">Instagram</a></li>
+                    <li>小柴海亜 <a href="https://instagram.com/noahoimo" target="_blank" class="social-link">Instagram</a></li>
+                    <li>襲惠雅 <a href="https://instagram.com/admt_q" target="_blank" class="social-link">Instagram</a></li>
+                    <li>田辺朔葉 <a href="https://instagram.com/tanabe.motoha" target="_blank" class="social-link">Instagram</a></li>
+                    <li>春井美矢 <a href="https://instagram.com/harui._.miya" target="_blank" class="social-link">Instagram</a></li>
+                    <li>びゅん <a href="https://instagram.com/byun_tears" target="_blank" class="social-link">Instagram</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="information">
+            <h2 class="section-title">INFORMATION</h2>
+            
+            <div class="info-grid">
+                <div class="info-label">会期</div>
+                <div>
+                    2026.8.18 (Tue) – 8.28 (Fri)
+                </div>
+
+                <div class="info-label">時間</div>
+                <div>
+                    12:00 – 19:00<br>
+                    <span style="font-size: 13px; color: #888;">※最終日のみ搬出作業のため18時まで</span>
+                </div>
+
+                <div class="info-label">会場</div>
+                <div>
+                    Gallery Blue 3143<br>
+                    <span style="font-size: 14px; margin-top:5px; display:block;">〒107-0062 東京都港区南青山3-14-3 1F, 2F</span>
+                </div>
+
+                <div class="info-label">アクセス</div>
+                <div>
+                    表参道駅 A4出口より 徒歩5分<br>
+                    外苑前駅より 徒歩9分
+                </div>
+            </div>
+
+            <div class="info-map">
+                <iframe src="https://maps.google.com/maps?q=Gallery+Blue+3143+東京都港区南青山3-14-3&output=embed&t=m&z=15" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Rain Tree x Geidai Project. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
