@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 基本設定 --- */
         :root {
             --bg-color: #f8f8f8;
             --text-color: #2b2b2b;
@@ -48,7 +47,6 @@
 
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Header --- */
         header {
             height: 100vh;
             display: flex;
@@ -67,13 +65,7 @@
         }
 
         h1 { font-size: clamp(28px, 6vw, 48px); font-weight: 500; margin: 0 0 15px 0; }
-        .subtitle { 
-            font-family: var(--font-eng); 
-            font-size: 13px; 
-            color: var(--accent-color); 
-            letter-spacing: 0.2em;
-            text-transform: none; /* Students の大文字小文字を維持 */
-        }
+        .subtitle { font-family: var(--font-eng); font-size: 13px; color: var(--accent-color); letter-spacing: 0.2em; }
 
         .hero-image {
             width: 100%;
@@ -85,7 +77,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        /* --- Statement --- */
         .statement-text {
             text-align: justify;
             max-width: 700px;
@@ -105,7 +96,6 @@
 
         .author-name { font-size: 18px; font-weight: bold; margin-bottom: 40px; display: block; text-align: center; }
 
-        /* --- Artists --- */
         .section-title { font-family: var(--font-eng); font-size: 14px; text-align: center; margin-bottom: 60px; color: var(--accent-color); letter-spacing: 0.2em; }
 
         .artist-group { text-align: center; margin-bottom: 60px; }
@@ -140,7 +130,7 @@
         }
 
         .info-label {
-            width: 120px;
+            width: 100px;
             flex-shrink: 0;
             font-weight: bold;
             color: #555;
@@ -258,7 +248,7 @@
                 </div>
                 <div class="info-row">
                     <div class="info-label">時間</div>
-                    <div class="info-content">12:00 – 19:00<br>※最終日（8.28）のみ18:00閉場</div>
+                    <div class="info-content">12:00 – 19:00（最終日は18:00閉場）</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">会場</div>
@@ -279,7 +269,7 @@
             
             <div class="info-map-container">
                 <div class="info-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.272147773295!2d139.7126047!3d35.6666014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b030e698943%3A0x86701c9019d5929a!2zR2FsbGVyeSBCbHVlIDMxNDM!5e0!3m2!1sja!2sjp!4v1709540000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://maps.google.com/maps?q=Gallery%20Blue%203143&output=embed&t=m&z=17&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
