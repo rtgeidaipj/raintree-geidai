@@ -99,24 +99,26 @@
         /* 署名と画像をまとめるコンテナ */
         .signature-container {
             display: flex;
-            justify-content: flex-end; /* 右寄せ */
-            align-items: center; /* 垂直方向の中央揃え */
-            margin-top: 40px;
+            justify-content: flex-end; 
+            align-items: center;
+            margin-top: 50px;
+            padding-right: 60px; /* 右寄せすぎないよう余白を確保 */
         }
 
-        /* 署名の画像 */
+        /* 署名の画像を大きく修正 */
         .signature-image {
-            width: 60px; /* 適正なサイズに調整 */
+            width: 120px; 
             height: auto;
-            margin-right: 15px; /* 名前との間隔 */
-            border-radius: 5px; /* 少し角を丸くする（任意） */
+            margin-right: 25px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .signature {
-            display: inline-block; /* Flexbox内で並べるためinline-blockに */
-            font-size: 18px;
+            display: inline-block;
+            font-size: 20px;
             font-weight: bold;
-            padding-right: 10px;
+            letter-spacing: 0.15em;
         }
 
         .section-title { font-family: var(--font-eng); font-size: 14px; text-align: center; margin-bottom: 60px; color: var(--accent-color); letter-spacing: 0.2em; }
@@ -138,11 +140,7 @@
             letter-spacing: 0.05em;
         }
 
-        .social-link:hover {
-            color: #fff;
-            background-color: #333;
-            border-color: #333;
-        }
+        .social-link:hover { color: #fff; background-color: #333; border-color: #333; }
 
         .info-grid {
             max-width: 700px;
@@ -158,29 +156,11 @@
             line-height: 1.8;
         }
 
-        .info-label {
-            width: 100px;
-            flex-shrink: 0;
-            font-weight: bold;
-            color: #555;
-        }
+        .info-label { width: 100px; flex-shrink: 0; font-weight: bold; color: #555; }
+        .info-content { flex-grow: 1; }
 
-        .info-content {
-            flex-grow: 1;
-        }
-
-        .info-map-container {
-            width: 100%;
-            margin-top: 50px;
-        }
-
-        .info-map-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            filter: grayscale(100%) contrast(1.1);
-        }
+        .info-map-container { width: 100%; margin-top: 50px; }
+        .info-map-img { width: 100%; height: auto; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.05); filter: grayscale(100%) contrast(1.1); }
 
         footer { text-align: center; padding: 80px 0; font-size: 11px; color: #aaa; font-family: var(--font-eng); letter-spacing: 0.2em; }
 
@@ -188,6 +168,8 @@
             .container { padding: 0 25px; }
             .info-row { flex-direction: column; margin-bottom: 20px; }
             .info-label { width: 100%; margin-bottom: 5px; font-size: 13px; color: var(--accent-color); }
+            .signature-container { padding-right: 0; justify-content: center; flex-direction: column; }
+            .signature-image { margin-right: 0; margin-bottom: 15px; width: 110px; }
         }
     </style>
 </head>
@@ -209,28 +191,12 @@
     <div class="container">
         <section id="statement">
             <div class="statement-text">
-                <p>
-                    本展は雨の日に輝く星空を信じるように、藝大生とRain Treeという見えない未来に希望のまなざしを持ち、厚い雲の先にある星空に手を伸ばし続けてきた過去を持つ10名の作家による舞台です。
-                    また、アーティストとアイドルという異なるベクトルで常に、鑑賞者や観客の視点を意識してきた両者のまなざしから、表現者としての境界を越えて、鑑賞者やファンとの新たな関係の構築を目指す、学生による実験的な企画でもあります。
-                </p>
-                <p>
-                    まなざしによって私たちは境界を越えられるのか。今回、橋本真希さんは培ってきたアイドルとしてのアイデンティティを絵画という異なる形態に昇華し、藝大生と共に1人の作家として共に制作に向き合います。
-                    また藝大生にとっては、アイドルプロデュースに代表されるファンダムという要素を意識し、SNSやマスメディアを活用したプロモーションやファン獲得の方法を、アイドルとは異なる立場から考え、向き合う機会にもなります。
-                </p>
-                <p>
-                    この展覧会までの半年間をかけたアートプロジェクトとして、両者が問題意識を持って発見していく過程を提示します。また会場ではまなざしを題材にしたテキストからそれぞれの背負ってきた背景を明らかにすることで、物語性をメディウムとして、作家と鑑賞者の境界を横断して対話を試みます。
-                </p>
-                <p>
-                    「アーティスト」と「アイドル」は、表現の形式も置かれている場所も違います。しかしその根にある構造は、驚くほど似ており、“ファンを獲得し、その支持の上に存在が成り立つ”という仕組みなのです。私たちは常に、「名前を売ること」「誰に、どのように届くのか」「求められるとは何か」という問いの中で表現を続けています。そこには、ひとつの正解があるわけではありません。
-                </p>
-                <p>
-                    ある人は、世界中に名前を広く知らしめ、“その人の作品”としての価値を確立することで求められる存在を目指します。ある人は、名前よりも作品そのものに対する自分の思いを軸に、一人ひとりに向けて静かに届けたいと考えます。また、生活は別の場所で支え、「表現」は「売る」ことから少し距離を取ろうとする人もいます。
-                    自分自身を作品とし、キャラクターや物語ごと愛されることで関係性を築く人もいます。
-                </p>
-                <p>
-                    立場も戦略も異なる。けれど、そのどれもが“誰かに見つけられ、支えられる”というファンダムの上に成り立っていると考察できることから、この展示はアイドルと藝大生という異なる領域に立つ表現者がそれぞれのスタンスを持ち寄り、「表現とファンの関係」を可視化する意図を含んでいます。
-                    本展は表現者のまなざしとファンダムへの関わり。この二つの軸により構成されています。藝大生とアイドルという異色の組み合わせによって見えてくる新たなアートシーンをお届けします。
-                </p>
+                <p>本展は雨の日に輝く星空を信じるように、藝大生とRain Treeという見えない未来に希望のまなざしを持ち、厚い雲の先にある星空に手を伸ばし続けてきた過去を持つ10名の作家による舞台です。また、アーティストとアイドルという異なるベクトルで常に、鑑賞者や観客の視点を意識してきた両者のまなざしから、表現者としての境界を越えて、鑑賞者やファンとの新たな関係の構築を目指す、学生による実験的な企画でもあります。</p>
+                <p>まなざしによって私たちは境界を越えられるのか。今回、橋本真希さんは培ってきたアイドルとしてのアイデンティティを絵画という異なる形態に昇華し、藝大生と共に1人の作家として共に制作に向き合います。また藝大生にとっては、アイドルプロデュースに代表されるファンダムという要素を意識し、SNSやマスメディアを活用したプロモーションやファン獲得の方法を、アイドルとは異なる立場から考え、向き合う機会にもなります。</p>
+                <p>この展覧会までの半年間をかけたアートプロジェクトとして、両者が問題意識を持って発見していく過程を提示します。また会場ではまなざしを題材にしたテキストからそれぞれの背負ってきた背景を明らかにすることで、物語性をメディウムとして、作家と鑑賞者の境界を横断して対話を試みます。</p>
+                <p>「アーティスト」と「アイドル」は、表現の形式も置かれている場所も違います。しかしその根にある構造は、驚くほど似ており、“ファンを獲得し、その支持の上に存在が成り立つ”という仕組みなのです。私たちは常に、「名前を売ること」「誰に、どのように届くのか」「求められるとは何か」という問いの中で表現を続けています。そこには、ひとつの正解があるわけではありません。</p>
+                <p>ある人は、世界中に名前を広く知らしめ、“その人の作品”としての価値を確立することで求められる存在を目指します。ある人は、名前よりも作品そのものに対する自分の思いを軸に、一人ひとりに向けて静かに届けたいと考えます。また、生活は別の場所で支え、「表現」は「売る」ことから少し距離を取ろうとする人もいます。自分自身を作品とし、キャラクターや物語ごと愛されることで関係性を築く人もいます。</p>
+                <p>立場も戦略も異なる。けれど、そのどれもが“誰かに見つけられ、支えられる”というファンダムの上に成り立っていると考察できることから、この展示はアイドルと藝大生という異なる領域に立つ表現者がそれぞれのスタンスを持ち寄り、「表現とファンの関係」を可視化する意図を含んでいます。本展は表現者のまなざしとファンダムへの関わり。この二つの軸により構成されています。藝大生とアイドルという異色の組み合わせによって見えてくる新たなアートシーンをお届けします。</p>
 
                 <div class="personal-message">
                     <p>「アイドル」と「アーティスト」<br>違う場所に立っているようでいて、その根はどこかで静かにつながっていると感じています。</p>
@@ -286,10 +252,7 @@
                 </div>
                 <div class="info-row">
                     <div class="info-label">会場</div>
-                    <div class="info-content">
-                        Gallery Blue 3143<br>
-                        〒107-0062 東京都港区南青山3-14-3 1F, 2F
-                    </div>
+                    <div class="info-content">Gallery Blue 3143<br>〒107-0062 東京都港区南青山3-14-3 1F, 2F</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">アクセス</div>
