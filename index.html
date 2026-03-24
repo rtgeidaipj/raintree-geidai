@@ -6,9 +6,8 @@
     <title>『雨の日の星空』 | Rain Tree 橋本真希 × 藝大生9人プロジェクト</title>
     
     <meta name="robots" content="index, follow">
-    <meta name="description" content="アイドルとアーティストの境界、ファンダムとの関係性の可視化。「まなざし」をテーマにした、Rain Tree 橋本真希と東京藝術大学油画専攻の学生9名による没入型展示。2026年8月、南青山Gallery Blue 3143にて開催。">
-    <link rel="canonical" href="https://your-domain.github.io/your-repo-name/">
-
+    <meta name="description" content="アイドルとアーティストの境界、ファンダムとの関係性の可視化。「まなざし」をテーマにした、Rain Tree 橋本真希と東京藝術大学の学生9名による没入型展示。2026年8月、南青山Gallery Blue 3143にて開催。">
+    
     <meta property="og:title" content="『雨の日の星空』 | Rain Tree 橋本真希 × 藝大生9人プロジェクト">
     <meta property="og:description" content="アイドルと表現者の「まなざし」が交差する。2026年8月開催の展覧会公式サイト。">
     <meta property="og:image" content="S__25993285-1.png">
@@ -78,21 +77,23 @@
         h1 { font-size: clamp(28px, 6vw, 48px); font-weight: 500; margin: 0 0 15px 0; }
         .subtitle { font-family: var(--font-eng); font-size: 13px; color: var(--accent-color); letter-spacing: 0.2em; }
 
-        /* メインビジュアルの表示設定 */
-        .hero-visual {
+        /* メインビジュアル仮表示用（Coming Soon） */
+        .hero-placeholder {
             width: 100%;
-            max-width: 800px;
+            max-width: 600px;
+            height: 400px;
+            background-color: #e0e0e0;
             margin: 60px auto 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-radius: 2px;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            color: #999;
+            border-radius: 4px;
         }
-
-        .hero-visual img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .placeholder-text { font-size: 14px; letter-spacing: 0.2em; margin-bottom: 10px; }
+        .placeholder-subtext { font-size: 11px; letter-spacing: 0.1em; }
 
         .statement-text { text-align: justify; max-width: 700px; margin: 0 auto; font-size: 15px; }
         .statement-text p { margin-bottom: 40px; }
@@ -180,8 +181,9 @@
             <p class="subtitle">Rain Tree × 9 GEIDAI Students 2026</p>
         </section>
         
-        <div class="hero-visual">
-            <img src="S__25993285-1.png" alt="『雨の日の星空』メインビジュアル">
+        <div class="hero-placeholder">
+            <div class="placeholder-text">Main Visual: Coming Soon</div>
+            <div class="placeholder-subtext">メインビジュアル：近日公開</div>
         </div>
     </header>
 
